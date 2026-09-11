@@ -22,4 +22,4 @@ add_executable(radialmenu
 )
 
 target_link_libraries(radialmenu PRIVATE ${QT_LIBS})
-target_include_directories(radialmenu PRIVATE src)
+target_include_directories(radialmenu PRIVATE include)
