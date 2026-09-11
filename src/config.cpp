@@ -44,13 +44,11 @@ Config Config::load(const QString& path)
     Config cfg;
     QFile f(path);
     if (!f.open(QIODevice::ReadOnly)) {
-        qWarning() << "Could not open config" << path << "- using defaults";
-        return cfg;
+        qFatal() << "Could not open config file:" << path;
     }
     const auto doc = QJsonDocument::fromJson(f.readAll());
     if (!doc.isObject()) {
-        qWarning() << "Config is not a JSON object";
-        return cfg;
+        qFatal() << "Config is not a JSON object";
     }
     const auto obj = doc.object();
 
